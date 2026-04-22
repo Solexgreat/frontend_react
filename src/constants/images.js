@@ -15,6 +15,8 @@ import python from '../assets/python.png';
 import react from '../assets/react.png';
 import redux from '../assets/redux.png';
 import sass from '../assets/sass.png';
+import my_pic01 from '../assets/my_pic01.png';
+import my_pic02 from '../assets/my_pic02.png';
 import typescript from '../assets/typescript.png';
 import vue from '../assets/vue.png';
 
@@ -60,6 +62,8 @@ export default {
   about03,
   about04,
   profile,
+  my_pic01,
+  my_pic02,
   circle,
   logo,
   adidas,

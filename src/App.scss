@@ -7,8 +7,16 @@
   background-color: var(--white-color);
 }
 
+.app__whitebg.dark {
+  background-color: #0d1117 ;
+}
+
 .app__primarybg {
   background-color: var(--primary-color);
+}
+
+.app__primarybg.dark {
+  background-color: #161b22;
 }
 
 .app__container {
@@ -71,6 +79,10 @@
   }
 }
 
+.head-text.dark {
+  color: var(--white-color);
+}
+
 .p-text {
   font-size: 0.8rem;
   text-align: left;
@@ -80,6 +92,10 @@
   @media screen and (min-width: 2000px) {
     font-size: 1.75rem;
   }
+}
+
+.p-text.dark {
+  color: var(--lightGray-color);
 }
 
 .bold-text {
@@ -95,6 +111,10 @@
   @media screen and (max-width: 450px) {
     font-size: 0.9rem;
   }
+}
+
+.bold-text.dark {
+  color: var(--white-color);
 }
 
 .app__social {

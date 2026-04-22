@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import './Navbar.scss';
 import { images } from '../../constants';
-import { HiMenuAlt4, HiX } from 'react-icons/hi';
+import { HiMenuAlt4, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import {motion} from 'framer-motion'
+import { useToggle } from '../../context/ToggleProvider';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const { isOn, toggle: toggleLight} = useToggle()
 
   return (
-    <nav className='app__navbar'>
+    <nav className={isOn ? 'app__navbar light': 'app__navbar dark'}>
       <div className='app__logo'>
         <img src={images.logo} alt='logo' />
       </div>
@@ -21,25 +23,35 @@ const Navbar = () => {
         ))}
       </ul>
 
-      <div className='app__navbar-menu'>
-        <HiMenuAlt4 onClick={() => setToggle(true)} />
-        {
-          toggle && (
-            <motion.div
-              whileInView={{ x: [300, 0] }}
-              transition={{ duration: 0.85, ease: 'easeOut' }}
-            >
-              <HiX onClick={() => setToggle(false)} />
-              <ul>
-                {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
-                <li key={item}>
-                  <a href={`#${item}`} onClick={() => setToggle(false)}>{item}</a>
-                </li>
-                ))}
-              </ul>
-            </motion.div>
-          )
+      <div className='app__navbar-right'>
+        <div className='app__navbar-light'>
+          {isOn ?
+            <HiSun onClick={toggleLight} />
+            :
+            <HiMoon onClick={toggleLight} />
         }
+        </div>
+
+        <div className='app__navbar-menu'>
+          <HiMenuAlt4 onClick={() => setToggle(true)} />
+          {
+            toggle && (
+              <motion.div
+                whileInView={{ x: [300, 0] }}
+                transition={{ duration: 0.85, ease: 'easeOut' }}
+              >
+                <HiX onClick={() => setToggle(false)} />
+                <ul>
+                  {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
+                  <li key={item}>
+                    <a href={`#${item}`} onClick={() => setToggle(false)}>{item}</a>
+                  </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )
+          }
+        </div>
       </div>
     </nav>
   )

@@ -1,7 +1,9 @@
 import React from 'react'
 import './Header.scss';
 import { easeInOut, motion, scale } from 'framer-motion';
-import { images } from '../../constants'
+import { images } from '../../constants';
+import { AppWrap } from '../../wrapper';
+import { useToggle } from '../../context/ToggleProvider';
 
 const scaleVariants = {
   whileInView: {
@@ -15,22 +17,25 @@ const scaleVariants = {
 }
 
 const Header = () => {
+  const { isOn } = useToggle();
+
+
   return (
-    <div id='home' className='app__header app__flex'>
+    <div className={isOn ? 'app__header app__flex' : 'app__header dark app__flex'}>
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
         className='app__header-info'
       >
         <div className='app__header-badge'>
-          <div className='badge-cmp app__flex'>
+          <div className={isOn ? 'badge-cmp app__flex' : 'badge-cmp dark app__flex'}>
             <span>👋</span>
             <div style={{ marginLeft: 20 }}>
               <p className='p-text'>Hello, I am</p>
-              <h1 className='head-text'>Solomon</h1>
+              <h1 className= {isOn ? 'head-text' : 'head-text dark'}>Solomon</h1>
             </div>
           </div>
-          <div className='tag-cmp app__flex'>
+          <div className={isOn ? 'tag-cmp app__flex' : 'tag-cmp dark app__flex'}>
             <p className='p-text'>Fullstack Developer</p>
           </div>
         </div>
@@ -41,7 +46,7 @@ const Header = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className='app__header-img'
       >
-        <img src={images.profile} alt='profile_bg' />
+        <img src={images.my_pic02} alt='profile_bg' />
         <motion.img
           whileInView={{ scale: [0, 1] }}
           transition={{ duration: 1, ease: 'easeInOut' }}
@@ -57,8 +62,8 @@ const Header = () => {
         whileInView={scaleVariants.whileInView}
         className='app__header-circles'
       >
-        {[images.flutter, images.redux, images.sass].map((circle, index) =>
-          <div className='circle-app app__flex' key={`circle-${index}`}>
+        {[images.react, images.python, images.sass, images.typescript].map((circle, index) =>
+          <div className={isOn ? 'circle-app light app__flex' : 'circle-app dark app__flex' }  key={`circle-${index}`}>
             <img src={circle} alt='circle'/>
           </div>
         )}
@@ -67,4 +72,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default AppWrap(Header,'home');
