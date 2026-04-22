@@ -36,7 +36,7 @@ const Header = () => {
             </div>
           </div>
           <div className={isOn ? 'tag-cmp app__flex' : 'tag-cmp dark app__flex'}>
-            <p className='p-text'>Fullstack Developer</p>
+            <p className=''>Fullstack Developer</p>
           </div>
         </div>
       </motion.div>

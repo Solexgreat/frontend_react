@@ -28,6 +28,14 @@
     border: 1px solid rgba(255,255, 255, 0.18);
     position: fixed;
     z-index: 2;
+
+    .app__navbar-links li a {
+        color: var(--white-color);
+    }
+
+    .app__navbar-right .app__navbar-menu div a {
+        color: var(--white-color);
+    }
 }
 
 .app__navbar-logo {
@@ -36,12 +44,18 @@
     align-items: center;
 
     img {
-        width: 90px;
-        height: 20px;
+        width: 170px;
+        height: 44px;
+        object-fit: contain;
 
         @media screen and (min-width: 2000px) {
-            width: 100px;
-            height: 40px;
+            width: 340px;
+            height: 62px;
+        }
+
+        @media screen and (max-width: 450px) {
+            width: 140px;
+            height: 36px;
         }
     }
 }

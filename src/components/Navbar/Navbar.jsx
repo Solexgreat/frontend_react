@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './Navbar.scss';
-import { images } from '../../constants';
 import { HiMenuAlt4, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import {motion} from 'framer-motion'
 import { useToggle } from '../../context/ToggleProvider';
@@ -8,11 +7,12 @@ import { useToggle } from '../../context/ToggleProvider';
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const { isOn, toggle: toggleLight} = useToggle()
+  const logoSrc = isOn ? '/solextech_black.png' : '/solextech_white.png';
 
   return (
     <nav className={isOn ? 'app__navbar light': 'app__navbar dark'}>
-      <div className='app__logo'>
-        <img src={images.logo} alt='logo' />
+      <div className='app__navbar-logo'>
+        <img src={logoSrc} alt='Solextech logo' />
       </div>
       <ul className='app__navbar-links'>
         {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
