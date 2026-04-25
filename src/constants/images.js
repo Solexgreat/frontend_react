@@ -17,6 +17,8 @@ import redux from '../assets/redux.png';
 import sass from '../assets/sass.png';
 import my_pic01 from '../assets/my_pic01.png';
 import my_pic02 from '../assets/my_pic02.png';
+import solextech_img1 from '../assets/solextech_img1.png';
+import solextech_img2 from '../assets/solextech_img2.png';
 import typescript from '../assets/typescript.png';
 import vue from '../assets/vue.png';
 
@@ -64,6 +66,8 @@ export default {
   profile,
   my_pic01,
   my_pic02,
+  solextech_img1,
+  solextech_img2,
   circle,
   logo,
   adidas,

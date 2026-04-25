@@ -49,13 +49,13 @@ const Footer = () => {
   return (
     <>
       <h2 className={isOn ? 'head-text' : 'head-text dark'}>
-        Take a coffe & chat with me
+        Contact Me To Bring Your Ideas To Life
       </h2>
 
       <div className='app__footer-cards'>
         <div className='app__footer-card'>
           <img src={images.email} alt='email' />
-          <a href='mailto:hello@gmail.com' className='p-text'>hello@gmail.com</a>
+          <a href='mailto:SolomonOmisami@gmail.com' className='p-text'>SolomonOmisami@gmail.com</a>
         </div>
 
         <div className='app__footer-card'>

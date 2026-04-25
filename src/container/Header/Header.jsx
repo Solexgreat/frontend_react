@@ -1,74 +1,64 @@
 import React from 'react'
 import './Header.scss';
-import { easeInOut, motion, scale } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { images } from '../../constants';
 import { AppWrap } from '../../wrapper';
 import { useToggle } from '../../context/ToggleProvider';
-
-const scaleVariants = {
-  whileInView: {
-    scale: [0, 1],
-    opacity: [0, 1],
-    transition: {
-      duration: 1,
-      ease: 'easeInOut'
-    }
-  }
-}
 
 const Header = () => {
   const { isOn } = useToggle();
 
 
   return (
-    <div className={isOn ? 'app__header app__flex' : 'app__header dark app__flex'}>
+    <section className={isOn ? 'app__hero app__hero--light' : 'app__hero app__hero--dark'}>
+      <div className='app__hero-overlay'></div>
+      <div className='app__hero-inner'>
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-        transition={{ duration: 0.5 }}
-        className='app__header-info'
+        transition={{ duration: 0.6 }}
+        className='app__hero-content'
       >
-        <div className='app__header-badge'>
-          <div className={isOn ? 'badge-cmp app__flex' : 'badge-cmp dark app__flex'}>
-            <span>👋</span>
-            <div style={{ marginLeft: 20 }}>
-              <p className='p-text'>Hello, I am</p>
-              <h1 className= {isOn ? 'head-text' : 'head-text dark'}>Solomon</h1>
-            </div>
-          </div>
-          <div className={isOn ? 'tag-cmp app__flex' : 'tag-cmp dark app__flex'}>
-            <p className=''>Fullstack Developer</p>
+        <h1 className='app__hero-title'>
+          I build backend systems that <span>scale, perform</span>, and don&apos;t break.
+        </h1>
+
+        <p className='app__hero-subtitle'>
+          Backend Engineer with 2+ years experience building APIs, automation systems,
+          and scalable architectures using Node.js, Laravel, and modern cloud tools.
+        </p>
+
+        <div className='app__hero-bullets'>
+          <p>• Scalable API design and microservices</p>
+          <p>• Clean, maintainable architecture</p>
+          <p>• Performance-focused systems</p>
+        </div>
+
+        <div className='app__hero-cta'>
+          <a href='#work' className='app__hero-btn app__hero-btn--primary'>
+            View My Work
+          </a>
+          <a href='#contact' className='app__hero-btn app__hero-btn--secondary'>
+            Let&apos;s Work Together
+          </a>
+        </div>
+
+        <p className='app__hero-trust'>Trusted by startups and growing teams.</p>
+      </motion.div>
+
+      <motion.div
+        whileInView={{ x: [60, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.7 }}
+        className='app__hero-media'
+      >
+        <div className='app__hero-image-wrap'>
+          <div className='app__hero-glow'></div>
+          <div className='app__hero-image-card'>
+            <img src={images.solextech_img2} alt='Solomon portrait' className='app__hero-image' />
           </div>
         </div>
       </motion.div>
-
-      <motion.div
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className='app__header-img'
-      >
-        <img src={images.my_pic02} alt='profile_bg' />
-        <motion.img
-          whileInView={{ scale: [0, 1] }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
-          className='overlay_circle'
-          src={images.circle}
-          alt='profile_circle'
-        >
-        </motion.img>
-      </motion.div>
-
-      <motion.div
-        variants={scaleVariants}
-        whileInView={scaleVariants.whileInView}
-        className='app__header-circles'
-      >
-        {[images.react, images.python, images.sass, images.typescript].map((circle, index) =>
-          <div className={isOn ? 'circle-app light app__flex' : 'circle-app dark app__flex' }  key={`circle-${index}`}>
-            <img src={circle} alt='circle'/>
-          </div>
-        )}
-      </motion.div>
-    </div>
+      </div>
+    </section>
   )
 }
 
