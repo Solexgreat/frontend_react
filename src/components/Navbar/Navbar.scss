@@ -6,12 +6,21 @@
     align-items: center;
 
     padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.25 );
+    background: rgba(255, 255, 255, 0.72 );
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(255,255, 255, 0.18);
     position: fixed;
-    z-index: 2;
+    z-index: 100;
+
+    .app__navbar-links li a {
+        color: var(--black-color);
+        font-weight: 600;
+    }
+
+    .app__navbar-right .app__navbar-menu div a {
+        color: var(--black-color);
+    }
 }
 
 .app__navbar.dark {
@@ -27,7 +36,7 @@
     -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(255,255, 255, 0.18);
     position: fixed;
-    z-index: 2;
+    z-index: 100;
 
     .app__navbar-links li a {
         color: var(--white-color);

@@ -19,15 +19,16 @@ const Header = () => {
         className='app__hero-content'
       >
         <h1 className='app__hero-title'>
-          I build backend systems that <span>scale, perform</span>, and don&apos;t break.
+          I build systems that <span>scale, perform</span>, and don&apos;t break.
         </h1>
 
         <p className='app__hero-subtitle'>
-          Backend Engineer with 2+ years experience building APIs, automation systems,
+          software Engineer with years experience building Website, APIs, automation systems,
           and scalable architectures using Node.js, Laravel, and modern cloud tools.
         </p>
 
         <div className='app__hero-bullets'>
+          <p>• Build Saas products</p>
           <p>• Scalable API design and microservices</p>
           <p>• Clean, maintainable architecture</p>
           <p>• Performance-focused systems</p>
